@@ -20,6 +20,27 @@ No. And it's slow, for sure.
 $ go-findql -path=vendor -depth=3 -filter="directory=false and size > 600 and name like 'err%' and modified_at > '2019-01-01 00:00:00'"
 ```
 
+The SQL you write can filter on the following fields (these are the DB columns):
+
+```
+name TEXT
+size INT
+path TEXT
+depth INT
+regular BOOLEAN
+directory BOOLEAN
+uid INT
+gid INT
+user_name TEXT
+group_name TEXT
+permission_owner TEXT
+permission_group TEXT
+permission_other TEXT
+accessed_at DATETIME
+created_at DATETIME
+modified_at DATETIME
+```
+
 ## How did you do it?
 
 Using `sqlite` (in memory), and that's about it.
